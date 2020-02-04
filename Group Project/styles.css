@@ -1,0 +1,47 @@
+.reviewcontainer{
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+    padding: 20px;
+    width: 500px;
+    height: 200px;
+    margin-top: 20px;
+}
+
+.reviewfilter{
+    border-radius: 5px;
+    border: 1px solid #73AD21;
+    text-align: center;
+    padding: 5px;
+    width: 75px;
+    height: 22px;
+    margin-bottom: 20px;
+    color: #73AD21;
+
+}
+
+.userinitials{
+    font-size: 20px;
+    font-style: arial;
+    text-align: center;
+    color: white;
+    border-radius: 30px;
+    background-color: grey;
+    padding-top: 6px;
+    width: 40px;
+    height: 32px;
+    display: inline-block;
+}
+
+.firstname{
+    display: inline-block;
+}
+
+.reviewthumb{
+    border-radius: 5px;
+    border: 1px solid black;
+    text-align: center;
+    display: inline-block;
+    padding-top: 5px;
+    width: 40px;
+    height: 22px;
+}
