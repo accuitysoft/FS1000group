@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <script src="js/login.js"></script>
+
+</head>
+
+<body>
+    <div class="login" style="margin:auto;width:300px;height:200px;border:1px solid blue; background-color:lightblue;padding-top:60px;padding-left:80px;">
+        <div id="loginError" style="color:red"></div>
+        <label for="username">Username:</label></br>
+        <input type="text" name="username" id="username" style="width: 200px;" required></br></br>
+        <label for="pass">Password:</label></br>
+        <input type="password" id="password" style="width: 200px;" required></br></br>
+        <input type="button" value="Login" onclick="login()" />
+    </div>
+</body>
+
+</html>
