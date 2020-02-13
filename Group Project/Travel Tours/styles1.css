@@ -23,6 +23,7 @@ nav {
 
 nav ul {
     margin: 0px;
+    margin-left: 100px;
     padding: 20px;
     list-style: none;  
 }
