@@ -56,9 +56,8 @@
         </div>
     </div>
     <script>
-        function test() {
-            var africa= {
-                city: ["city1", "city2", "city3"],
+        var africa= {
+                city: ["Africacity1", "Africacity2", "Africacity3"],
                 Desc: ["description 1", "description2", "description3"],
                 Tourguide: ["tourguide1", "tourguide2", "tourguide3"],
                 city1: ["Any 2 sites","CAD$150.00 (admissions included!)","One Day","Any 4 sites","CAD$350.00 (admissions included!)","Two Day","Any 6 sites","CAD$550.00 (admissions included!)","Three Day"],
@@ -69,6 +68,9 @@
                 sights3: ["Eiffel Tower","Champs Elysees","Louvre","La Seine River","L'Arc de Triomphe","Cathedral Notre Dame de Paris"],
             };    
 
+        function test() {
+            
+
             var x = document.getElementById("destination").value;
             alert(x);
 
@@ -76,7 +78,6 @@
                 document.getElementById("city1").innerHTML = africa.city[0];
                 document.getElementById("city2").innerHTML = africa.city[1];
                 document.getElementById("city3").innerHTML = africa.city[2];
-
             }
         }
     </script>
