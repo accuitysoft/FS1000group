@@ -1,0 +1,44 @@
+body {
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.buttons {
+    background-color: black;
+    border: none;
+    padding: 1px 10px;
+    text-align: center;
+    font-size: 16px;
+    margin: 2px 1px;
+    transition: 0.3s;
+  }
+
+.buttons:hover {
+    background-color: grey;
+    font-size: 16px;
+    color:black;
+    border-color: rgb(85, 85, 206);
+    text-decoration: none;
+}
+
+.buttons a {
+      text-decoration: none;
+      color: white;
+  }
+
+.spacer {
+    width: 100%;
+    height: 100px;
+}
+
+.spacer2 {
+    width: 100%;
+    height: 40px;
+}
+
+/*experimenting with hover images here
+
+.hover_img a { position:relative; }
+.hover_img a span { position:absolute; display:none; z-index:99; }
+.hover_img a:hover span { display:block; }
+*/

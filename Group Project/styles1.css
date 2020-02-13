@@ -1,46 +1,80 @@
+
 body {
-    color:white;
+    color: white;
     font-family: Arial, Helvetica, sans-serif;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
 }
 
-/* Header */
+/*Header - Navbar*/
 
 header {
-    background: black;
-    padding: 25px;
+    width: 100%;
+    background:black;
+    color: white;    
+    line-height: 30px;
+    position: fixed;
 }
 
-header a {
-    color: white;
-    text-decoration: none;
-    text-transform: capitalize;
-    margin-top: 20px;
-
+nav {
+    background: black;
+    height: 100px;
+    
 }
 
 nav ul {
-    margin:0;
-    padding:0;
-    list-style-type: none;
+    margin: 0px;
+    padding: 20px;
+    list-style: none;  
 }
 
-nav li {
-    display: inline-block;
-    margin-right: 100px;
+.logo img {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 5px;
+    height: 80px;
+    width: 80px;
 }
+
+nav ul li {
+    float: left;  
+    width: 200px;
+    height:40px;
+    background-color:black;
+    line-height: 40px;
+    text-align: center;
+    font-size: 16px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color:gray;
+}
+
+nav ul li ul li {
+    display: none;
+    background-color: black;
+}
+
+nav ul li:hover ul li {
+    display: block;
+}
+
 
 /*Features */
 
 .features {
     background: white;
     color: red;
-    padding: 100px;
+    padding: 200px;
     display: flex;
     flex-direction: row;
-    text-align: center;
-    
+    text-align: center;   
 }
 
 .features figure{
@@ -52,10 +86,11 @@ nav li {
     width: 200px;
 }
 
-/* Footer */
+/*Footer*/
 
 footer {
-    background: black;
-    padding: 20px; 
+    background:black;
+    color: white;
+    padding: 20px;
     text-align: center;
 }
