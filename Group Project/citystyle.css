@@ -13,6 +13,11 @@ body {
     transition: 0.3s;
   }
 
+  /*for images */
+.img {
+    display: none;
+}
+
 .buttons:hover {
     background-color: grey;
     font-size: 16px;
@@ -21,10 +26,19 @@ body {
     text-decoration: none;
 }
 
+.buttons:hover~img {
+    display: block;
+}
+
 .buttons a {
       text-decoration: none;
       color: white;
   }
+
+.buttons:hover a {
+    a img {display:none;}
+    a:hover img {display:"images/city1hover.png"}
+}
 
 .spacer {
     width: 100%;
