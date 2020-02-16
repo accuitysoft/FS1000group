@@ -3,17 +3,20 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     margin:0;
     padding:0;
+
 }
 
 
 .adminNav{
     width: 200px;
-    height: 800px;
+    height: 100%;
     padding: 30px 10px 10px 10px;
     line-height: 2em;
     background-color: #242A3A;
-    display: inline-block;
+    
     color: grey;
+    position: fixed;
+    
 }
 
 .adminNav a {
@@ -28,6 +31,29 @@ body {
 
 .adminContent{
     padding-top: 30px;
+    margin-left: 240px;
     display: inline-block;
     vertical-align: top;
+    position: absolute;
 }
+
+.adminImageSingle{
+    border: 1px solid grey;
+    margin: 5px;
+    display: inline-block;
+}
+
+.adminImages{
+    width: 740px;
+    border:1px solid black; 
+    padding:5px; 
+    text-align:right;
+   
+}
+
+.adminImageRadio{
+    margin-top: 10px;
+    vertical-align: top;
+    display: inline-block;
+}
+

@@ -7,81 +7,406 @@
     <title>Admin Panel</title>
     <link rel="stylesheet" href="admin.css">
     <script src="https://kit.fontawesome.com/1422a2faae.js" crossorigin="anonymous"></script>
-    
+
 </head>
 
-<body>
+<!-- body to load all data "onload" -->
+
+<body onload="load()">
+
+    <!-- Left side Nav Bar     -->
     <div class="adminNav">
         <i class="fas fa-users-cog"></i><a href="admin.html"> Edit Destinations</a></br>
-        <i class="fas fa-balance-scale"></i><a href="promotions.html"> Promotions</a></br>
         <i class="fas fa-sign-out-alt"></i><a href="login.html"> Logout</a>
     </div>
+
+    <!-- Main Edit Destination content     -->
     <div class="adminContent">
         <h1>Edit Destinations</h1>
-        Destination: 
-            <select id="destination" onChange="test()">
-                <option value="africa">Africa</option>
-                <option value="americas">Americas</option>
-                <option value="asia">Asia</option>
-                <option value="europe">Europe</option>
-            </select></br>
-        <div class="adminImages" style="border:1px solid black; width:600px; padding:5px; text-align:right;">
-            <div class="adminImagesPreview">1</div>
-            <button>Delete</button>
+
+
+        Destination:
+        <select id="destination" onChange="loadCity()">
+        </select></br>
+        <button onClick="addDestination()">Add Destination</button> <button onClick="deleteDestination()">Delete
+            Destination</button></br></br>
+
+        City Name: 
+        <select id="city" onChange="loadCityData()">
+            <option id="city1" value="city1"></option>
+            <option id="city2" value="city2"></option>
+            <option id="city3" value="city3"></option>
+        </select></br></br>
+
+        <!-- Image div -->
+        <div class="adminImages">
+            <div id="images" class="adminImagesPreview"></div>
+            <button onClick="deleteImage()">Delete</button>
             <button>Upload</button>
-        </div>
-        <div>
-            
-            City Name:</br>
-            <select id="city" onChange="test2()">
-                <option id="city1" value="cityv1">Africa</option>
-                <option id="city2" value="cityv2">Americas</option>
-                <option id="city3" value="cityv3">Asia</option>
-            </select></br>
+        </div></br>
 
-            Description:</br>
-            <textarea id="description" rows="4" style="width:100px;"></textarea></br>
+        Description:</br>
+        <textarea id="description" rows="4" style="width:400px;"></textarea></br></br>
 
-            Tour Guide:</br>
-            <input type="text" id="tourguide" style="width:100px;"></br>
+        Locations:</br>
+        <textarea id="location" rows="8" style="width:400px;"></textarea></br>
 
-            Itinerary:</br>
-            <input type="text" id="itinerary" style="width:100px;"></br>
-
-            Dates:</br>
-            <input type="text" id="dates" style="width:100px;"></br>
-
-            <button>Save</button>
-
-        </div>
+        <h5>Package A</h5>
+        Sites:<input type="text" id="pa1"></br>
+        Cost:<input type="text" id="pa2"></br>
+        Number of Days:<input type="text" id="pa3"></br>
+        <h5>Package B</h5>
+        Sites:<input type="text" id="pb1"></br>
+        Cost:<input type="text" id="pb2"></br>
+        Number of Days:<input type="text" id="pb3"></br>
+        <h5>Package C</h5>
+        Sites:<input type="text" id="pc1"></br>
+        Cost:<input type="text" id="pc2"></br>
+        Number of Days:<input type="text" id="pc3"></br>
+        <button onClick="save()">Save</button>
     </div>
-    <script>
-        var africa= {
-                city: ["Africacity1", "Africacity2", "Africacity3"],
-                Desc: ["description 1", "description2", "description3"],
-                Tourguide: ["tourguide1", "tourguide2", "tourguide3"],
-                city1: ["Any 2 sites","CAD$150.00 (admissions included!)","One Day","Any 4 sites","CAD$350.00 (admissions included!)","Two Day","Any 6 sites","CAD$550.00 (admissions included!)","Three Day"],
-                sights1: ["Eiffel Tower","Champs Elysees","Louvre","La Seine River","L'Arc de Triomphe","Cathedral Notre Dame de Paris"],
-                city2: ["Any 2 sites","CAD$150.00 (admissions included!)","One Day","Any 4 sites","CAD$350.00 (admissions included!)","Two Day","Any 6 sites","CAD$550.00 (admissions included!)","Three Day"],
-                sights2: ["Eiffel Tower","Champs Elysees","Louvre","La Seine River","L'Arc de Triomphe","Cathedral Notre Dame de Paris"],
-                city3: ["Any 2 sites","CAD$150.00 (admissions included!)","One Day","Any 4 sites","CAD$350.00 (admissions included!)","Two Day","Any 6 sites","CAD$550.00 (admissions included!)","Three Day"],
-                sights3: ["Eiffel Tower","Champs Elysees","Louvre","La Seine River","L'Arc de Triomphe","Cathedral Notre Dame de Paris"],
-            };    
 
-        function test() {
+
+    <script>
+        // Array and objects for existing information - declared globally to use in functions
+        var regions = ["Africa", "Americas", "Asia", "Europe"]
+        var africa = {
+            city: ["Cairo", "Casablanca", "Johannesburg"],
+            Desc: ["Come to the capital of Egypt, and see the land of the pyramids, the pharaohs, and the Nile!", "Experience the romance of the iconic city, made famous by the classic 1942 film starring Humphrey Bogart", "Take in the many art, historical, and cultural museums of Johannesburg and see South Africa's largest city!"],
+            city1: ["Any 2 sites", "CAD$150.00 (admissions included!)", "One Day", "Any 4 sites", "CAD$350.00 (admissions included!)", "Two Days", "Any 6 sites", "CAD$550.00 (admissions included!)", "Three Days"],
+            sights1: ["The Giza Necropolis (The Pyramids and the Sphinx)", "The National Museum of Egyptian Civilization", "Khan el Khalili Bazaar", "The Hanging Church", "Qasr El Nil Bridge", "Al Hakim Mosque"],
+            images1: ["cairo1.jpg", "cairo2.jpg", "cairo3.jpg", "cairo4.jpg"],
+            city2: ["Any 2 sites", "CAD$150.00 (admissions included!)", "One Day", "Any 4 sites", "CAD$350.00 (admissions included!)", "Two Days", "Any 6 sites", "CAD$550.00 (admissions included!)", "Three Days"],
+            sights2: ["Casablanca Cathedral", "Hassan II Mosque", "Parc de la Ligue Arabe", "Eglise Notre Dame de Lourdes", "The Central Market", "El Hank Lighthouse"],
+            images2: ["casablanca1.jpg", "casablanca2.jpg", "casablanca3.jpg", "casablanca4.jpg"],
+            city3: ["Any 2 sites", "CAD$150.00 (admissions included!)", "One Day", "Any 4 sites", "CAD$350.00 (admissions included!)", "Two Days", "Any 6 sites", "CAD$550.00 (admissions included!)", "Three Days"],
+            sights3: ["The Apartheid Museum", "Gold Reef City", "Soweto & the Mandela Museum", "Pilanesberg National Park", "Walter Sisulu National Botanical Gardens", "The Lindfield Victorian House Museum"],
+            images3: ["johannesburg1.jpg", "johannesburg2.jpg", "johannesburg3.jpg", "johannesburg4.jpg"],
+        };
+        var americas = {
+            city: ["New York City", "Mexico City", "Toronto"],
+            Desc: ["See the largest city in the United States,", "Visit the largest city in North America, capital of Mexico!", "Explore Canada's largest city"],
+            city1: ["Any 2 sites", "CAD$150.00 (admissions included!)", "One Day", "Any 4 sites", "CAD$350.00 (admissions included!)", "Two Days", "Any 6 sites", "CAD$550.00 (admissions included!)", "Three Days"],
+            sights1: ["The Statue of Liberty", "Central Park", "Times Square", "Empire State Building", "Brooklyn Bridge", "One World Trade Centre and 9/11 Memorial"],
+            images1: ["New York City1.jpg", "New York City2.jpg", "New York City3.jpg", "New York City4.jpg"],
+
+            city2: ["Any 2 sites", "CAD$150.00 (admissions included!)", "One Day", "Any 4 sites", "CAD$350.00 (admissions included!)", "Two Days", "Any 6 sites", "CAD$550.00 (admissions included!)", "Three Days"],
+            sights2: ["The National Museum of Anthropology", "Templo Mayor and the Great Pyramid of Tenochtitlan", "The Palace of Fine Arts", "Mexico City Metropolitan Cathedral", "The National Palace", "Chapultepec Park"],
+            images2: ["Mexico City1.jpg", "Mexico City2.jpg", "Mexico City3.jpg", "Mexico City4.jpg"],
+
+            city3: ["Any 2 sites", "CAD$150.00 (admissions included!)", "One Day", "Any 4 sites", "CAD$350.00 (admissions included!)", "Two Days", "Any 6 sites", "CAD$550.00 (admissions included!)", "Three Days"],
+            sights3: ["CN Tower", "Hockey Hall of Fame", "Royal Ontario Museum", "Casa Loma", "Ripley's Aquarium of Canada", "Canada's Wonderland"],
+            images3: ["Toronto1.jpg", "Toronto2.jpg", "Toronto3.jpg", "Toronto4.jpg"],
+
+        };
+        var asia = {
+            city: ["Seoul", "Hong Kong", "New Delhi"],
+            Desc: ["Explore the heart of South Korea, and discover the history firsthand!", "Where East meets West, see one of the world's most international harbour cities!", "See the capital of India, experience the diverse culture, and take in the history of one of the world's oldest civilizations!"],
+            city1: ["Any 2 sites", "CAD$150.00 (admissions included!)", "One Day", "Any 4 sites", "CAD$350.00 (admissions included!)", "Two Days", "Any 6 sites", "CAD$550.00 (admissions included!)", "Three Days"],
+            sights1: ["Gyeongbokgung Palace", "North Seoul Tower", "MyeongDong District", "Lotte World Amusement Park", "Cheonggyecheon Park", "Namsan Mountain"],
+            images1: ["Seoul1.jpg", "Seoul2.jpg", "Seoul3.jpg", "Seoul4.jpg"],
+            city2: ["Any 2 sites", "CAD$150.00 (admissions included!)", "One Day", "Any 4 sites", "CAD$350.00 (admissions included!)", "Two Days", "Any 6 sites", "CAD$550.00 (admissions included!)", "Three Days"],
+            sights2: ["Hong Kong DisneyLand", "Victoria Peak", "Ocean Park", "Tian Tan Buddha", "Avenue of Stars", "Victoria Harbour"],
+            images2: ["Hong Kong1.jpg", "Hong Kong2.jpg", "Hong Kong3.jpg", "Hong Kong4.jpg"],
+            city3: ["Any 2 sites", "CAD$150.00 (admissions included!)", "One Day", "Any 4 sites", "CAD$350.00 (admissions included!)", "Two Days", "Any 6 sites", "CAD$550.00 (admissions included!)", "Three Days"],
+            sights3: ["Red Fort", "Humayun's Tomb", "Laxminarayan Temple", "Mughal Gardens", "National Science Centre", "India Gate"],
+            images3: ["New Delhi1.jpg", "New Delhi2.jpg", "New Delhi3.jpg", "New Delhi4.jpg"],
+
+        };
+        var europe = {
+            city: ["Paris", "London", "Madrid"],
+            Desc: ["Our walking tours includes the following sites, depending on the package you select! Our knowledgeable guides are with you all day to explain the history, and let you experience the city walking, or through public transport, and lets you see from the Parisien perspective!", "Our walking tours includes the following sites, depending on the package you select! Our knowledgeable guides are with you all day to explain the history, and let you experience the city walking, or through public transport, experience the hustle and bustle of London!", "Our walking tours includes the following sites, depending on the package you select! Our knowledgeable guides are with you all day to explain the history, and let you experience the city walking, or through public transport, take in the culture, and the sights of Madrid!"],
+            city1: ["Any 2 sites", "CAD$150.00 (admissions included!)", "One Day", "Any 4 sites", "CAD$350.00 (admissions included!)", "Two Days", "Any 6 sites", "CAD$550.00 (admissions included!)", "Three Days"],
+            sights1: ["Eiffel Tower", "Champs Elysees", "Louvre", "La Seine River", "L'Arc de Triomphe", "Cathedral Notre Dame de Paris"],
+            images1: ["Paris1.jpg", "Paris2.jpg", "Paris3.jpg", "Paris4.jpg"],
+            city2: ["Any 2 sites", "CAD$150.00 (admissions included!)", "One Day", "Any 4 sites", "CAD$350.00 (admissions included!)", "Two Days", "Any 6 sites", "CAD$550.00 (admissions included!)", "Three Days"],
+            sights2: ["London Tower", "Big Ben", "London Bridge", "Buckingham Palace", "Tower of London", "London Eye"],
+            images2: ["London1.jpg", "London2.jpg", "London3.jpg", "London4.jpg"],
+            city3: ["Any 2 sites", "CAD$150.00 (admissions included!)", "One Day", "Any 4 sites", "CAD$350.00 (admissions included!)", "Two Days", "Any 6 sites", "CAD$550.00 (admissions included!)", "Three Days"],
+            sights3: ["The Royal Palace", "Plaza Mayor", "Prado National Museum", "San Miguel Market", "Palacio de Cristal", "Sabatini Gardens"],
+            images3: ["Madrid1.jpg", "Madrid2.jpg", "Madrid3.jpg", "Madrid4.jpg"],
+
+        };
+
+        // Save function is only for display
+        function save() {
+            Alert("Data has been saved!");
+        }
+
+        // funtion to delete any destination from the listing
+        function deleteDestination() {
+            if (window.confirm("Are you sure you want to delete Destination?")) {
+                var i = 0;
+                var x = document.getElementById("destination").value;
+                for (i = 0; i < regions.length; i++) {
+                    if (regions[i] == x) {
+                        regions.splice(i, 1);
+                        break;
+                    }
+                }
+                load();
+            }
+        }
+
+        // Function to add destinations to existing listing
+        function addDestination() {
+            var newRegion = prompt("What is the name of the new Destination?");
+            if (newRegion != null || newRegion != "") {
+                regions.push(newRegion);
+                load();
+
+            }
+        }
+
+        // Function to delete images from the list of images
+        function deleteImage() {
+            var x = document.getElementById("destination").value;
+            var y = document.getElementById("city").value;
+            var i = 0;
+            switch (x) {
+                case "Africa":
+                    if (y == "city1") {
+                        for (i = 0; i < africa.images1.length; i++) {
+                            if (document.getElementById(africa.images1[i]).checked) {
+                                africa.images1.splice(i, 1);
+                                i--;
+                            }
+                        }
+                    } else if (y == "city2") {
+                        for (i = 0; i < africa.images2.length; i++) {
+                            if (document.getElementById(africa.images2[i]).checked) {
+                                africa.images2.splice(i, 1);
+                                i--;
+                            }
+                        }
+                    } else {
+                        for (i = 0; i < africa.images3.length; i++) {
+                            if (document.getElementById(africa.images3[i]).checked) {
+                                africa.images3.splice(i, 1);
+                                i--;
+                            }
+                        }
+                    }
+                    break;
+                case "Americas":
+                    if (y == "city1") {
+                        for (i = 0; i < americas.images1.length; i++) {
+                            if (document.getElementById(americas.images1[i]).checked) {
+                                americas.images1.splice(i, 1);
+                                i--;
+                            }
+                        }
+                    } else if (y == "city2") {
+                        for (i = 0; i < americas.images2.length; i++) {
+                            if (document.getElementById(americas.images2[i]).checked) {
+                                americas.images2.splice(i, 1);
+                                i--;
+                            }
+                        }
+                    } else {
+                        for (i = 0; i < americas.images3.length; i++) {
+                            if (document.getElementById(americas.images3[i]).checked) {
+                                americas.images3.splice(i, 1);
+                                i--;
+                            }
+                        }
+                    }
+                    break;
+                case "Asia":
+                    if (y == "city1") {
+                        for (i = 0; i < asia.images1.length; i++) {
+                            if (document.getElementById(asia.images1[i]).checked) {
+                                asia.images1.splice(i, 1);
+                                i--;
+                            }
+                        }
+                    } else if (y == "city2") {
+                        for (i = 0; i < asia.images2.length; i++) {
+                            if (document.getElementById(asia.images2[i]).checked) {
+                                asia.images2.splice(i, 1);
+                                i--;
+                            }
+                        }
+                    } else {
+                        for (i = 0; i < asia.images3.length; i++) {
+                            if (document.getElementById(asia.images3[i]).checked) {
+                                asia.images3.splice(i, 1);
+                                i--;
+                            }
+                        }
+                    }
+                    break;
+                case "Europe":
+                    if (y == "city1") {
+                        for (i = 0; i < europe.images1.length; i++) {
+                            if (document.getElementById(europe.images1[i]).checked) {
+                                europe.images1.splice(i, 1);
+                                i--;
+                            }
+                        }
+                    } else if (y == "city2") {
+                        for (i = 0; i < europe.images2.length; i++) {
+                            if (document.getElementById(europe.images2[i]).checked) {
+                                europe.images2.splice(i, 1);
+                                i--;
+                            }
+                        }
+                    } else {
+                        for (i = 0; i < europe.images3.length; i++) {
+                            if (document.getElementById(europe.images3[i]).checked) {
+                                europe.images3.splice(i, 1);
+                                i--;
+                            }
+                        }
+                    }
+                    break;
+            }
+            loadCityData();
+
+        }
+
+        // Non-functional upload image place marker
+        function uploadImage() {
+        }
+
+        // Load all existing destinations onload of website
+        function load() {
+            var i = 0;
+            var region = "";
+            var regiontemp;
+            for (i = 0; i < regions.length; i++) {
+                regiontemp = "<option value=\"" + regions[i] + "\">" + regions[i] + "</option>";
+                region = region + regiontemp;
+            }
+            document.getElementById("destination").innerHTML = region;
             
+            // Once destinations are loaded, city names need to be loaded
+            loadCity();
+
+        }
+
+        // This function loads city names
+        function loadCity() {
 
             var x = document.getElementById("destination").value;
-            alert(x);
 
-            if (x == "africa"){
+
+            if (x == "Africa") {
                 document.getElementById("city1").innerHTML = africa.city[0];
                 document.getElementById("city2").innerHTML = africa.city[1];
                 document.getElementById("city3").innerHTML = africa.city[2];
+            } else if (x == "Americas") {
+                document.getElementById("city1").innerHTML = americas.city[0];
+                document.getElementById("city2").innerHTML = americas.city[1];
+                document.getElementById("city3").innerHTML = americas.city[2];
+            } else if (x == "Asia") {
+                document.getElementById("city1").innerHTML = asia.city[0];
+                document.getElementById("city2").innerHTML = asia.city[1];
+                document.getElementById("city3").innerHTML = asia.city[2];
+            } else if (x == "Europe") {
+                document.getElementById("city1").innerHTML = europe.city[0];
+                document.getElementById("city2").innerHTML = europe.city[1];
+                document.getElementById("city3").innerHTML = europe.city[2];
+            } else {
+                document.getElementById("city1").innerHTML = "";
+                document.getElementById("city2").innerHTML = "";
+                document.getElementById("city3").innerHTML = "";
+                document.getElementById("description").innerHTML = "";
+                document.getElementById("location").innerHTML = "";
+                document.getElementById("pa1").value = "";
+                document.getElementById("pa2").value = "";
+                document.getElementById("pa3").value = "";
+                document.getElementById("pb1").value = "";
+                document.getElementById("pb2").value = "";
+                document.getElementById("pb3").value = "";
+                document.getElementById("pc1").value = "";
+                document.getElementById("pc2").value = "";
+                document.getElementById("pc3").value = "";
+                document.getElementById("images").innerHTML = "";
+                return;
+
             }
+
+            //Any time city names are loaded, city data has to be updated, city data function is called
+            loadCityData();
+        }
+
+        // This function populates the city data 
+        function loadCityData() {
+            var x = document.getElementById("destination").value;
+            var y = document.getElementById("city").value;
+            var descID, i;
+            var loc = '';
+            var loctemp = '';
+            var packages;
+            var imagetemp, image = '';
+
+            switch (x) {
+                case "Africa":
+                    z = africa;
+                    break;
+                case "Americas":
+                    z = americas;
+                    break;
+                case "Asia":
+                    z = asia;
+                    break;
+                case "Europe":
+                    z = europe;
+                    break;
+            }
+
+            if (y == "city1") {
+                descID = 0;
+                for (i = 0; i < 6; i++) {
+                    loctemp = "- " + z.sights1[i] + "\n";
+                    loc = loc + loctemp
+                }
+                for (i = 0; i < z.images1.length; i++) {
+                    imagetemp = "<div  class=\"adminImageSingle\" ><div  class=\"adminImageRadio\" ><input type=\"radio\" id=\"" + z.images1[i] + "\"></div><img class=\"adminImageSingle\"src = \"images/" + z.images1[i] + "\" width=\"200\" height=\"100\"></div>"
+                    image = image + imagetemp;
+                }
+                packages = z.city1;
+
+            } else if (y == "city2") {
+                descID = 1;
+                for (i = 0; i < 6; i++) {
+                    loctemp = "- " + z.sights2[i] + "\n";
+                    loc = loc + loctemp
+                }
+                for (i = 0; i < z.images2.length; i++) {
+                    imagetemp = "<div  class=\"adminImageSingle\" ><div  class=\"adminImageRadio\" ><input type=\"radio\" id=\"" + z.images2[i] + "\"></div><img class=\"adminImageSingle\"src = \"images/" + z.images2[i] + "\" width=\"200\" height=\"100\"></div>"
+                    image = image + imagetemp;
+                }
+                packages = z.city2;
+            } else {
+                descID = 2;
+                for (i = 0; i < 6; i++) {
+                    loctemp = "- " + z.sights3[i] + "\n";
+                    loc = loc + loctemp
+                }
+                for (i = 0; i < z.images3.length; i++) {
+                    imagetemp = "<div  class=\"adminImageSingle\" ><div  class=\"adminImageRadio\" ><input type=\"radio\" id=\"" + z.images3[i] + "\"></div><img src = \"images/" + z.images3[i] + "\" width=\"200\" height=\"100\"></div>"
+                    image = image + imagetemp;
+                }
+                packages = z.city3;
+            }
+            document.getElementById("description").innerHTML = z.Desc[descID];
+            document.getElementById("location").innerHTML = loc;
+            document.getElementById("pa1").value = packages[0];
+            document.getElementById("pa2").value = packages[1];
+            document.getElementById("pa3").value = packages[2];
+            document.getElementById("pb1").value = packages[3];
+            document.getElementById("pb2").value = packages[4];
+            document.getElementById("pb3").value = packages[5];
+            document.getElementById("pc1").value = packages[6];
+            document.getElementById("pc2").value = packages[7];
+            document.getElementById("pc3").value = packages[8];
+            document.getElementById("images").innerHTML = image;
+
         }
     </script>
-    
+
 </body>
 
 </html>
