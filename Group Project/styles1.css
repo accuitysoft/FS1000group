@@ -142,6 +142,33 @@ nav ul li:hover ul li {
     margin: 12px 0;
 }
 
+/*Sub - Features */
+
+h2 {
+    color: black;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.sub-features {
+    background: white;
+    color:black;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;   
+}
+
+.sub-features figure{
+    margin:auto;
+    width:200px;
+}
+
+.sub-features figure img {
+    width: 200px;
+}
+
+
 /*Footer*/
 
 footer {
