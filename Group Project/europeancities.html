@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="styles1.css">
     <link rel="stylesheet" href="citystyle.css">
     <script src="https://kit.fontawesome.com/1422a2faae.js" crossorigin="anonymous"></script>
+    <script src="js/review.js"></script>
 </head>
 <body>
     <!-- navbar -->
@@ -32,9 +33,9 @@
 <a id="city1"></a id>
     <div class="spacer2"></div>
     <h3>Paris</h3>
-<img src = "images1/europe.jpg" width="160" height="200"><img src = "images/bigben.png" width="200" height="160"></br>
-<img src = "images/placeholder.png" width="80" height="50"><img src = "images/placeholder.png" width="80" height="50"></br>
-<img src = "images/placeholder.png" width="80" height="50"><img src = "images/placeholder.png" width="80" height="50"></br>
+    <img src = "images/paris1.jpg" width="300" height="150"><img src = "images/paris2.jpg" width="300" height="150"></br>
+    <img src = "images/paris3.jpg" width="300" height="150"><img src = "images/paris4.jpg" width="300" height="150"></br>
+    <img src = "images/paris5.jpg" width="300" height="150"><img src = "images/paris6.jpg" width="300" height="150"></br>
 
 <!-- Feel free to add more in the blurb section here, these are placeholders -->
 <p>Our walking tours includes the following sites, depending on the package you select! Our knowledgeable guides are with you all day to explain the history, and let you experience the city walking, or through public transport, and lets you see from the Parisien perspective!</p>
@@ -73,15 +74,16 @@
         <td>Three Days</td>
     </tr>
 </table>
+<div id="review2"></div>
 <button class ="buttons"><p><a href = "#top">Back to the top!</a></p></button></br>
 <button class ="buttons"><p><a href = "contactus.html">Book Paris now!</a></p></button>
 
 <a id="city2"></a id>
 <div class="spacer2"></div>
     <h3>London</h3>
-<img src = "images1/europe.jpg" width="160" height="200"><img src = "images/bigben.png" width="200" height="160"></br>
-<img src = "images/placeholder.png" width="80" height="50"><img src = "images/placeholder.png" width="80" height="50"></br>
-<img src = "images/placeholder.png" width="80" height="50"><img src = "images/placeholder.png" width="80" height="50"></br>
+    <img src = "images/london1.jpg" width="300" height="150"><img src = "images/london2.jpg" width="300" height="150"></br>
+    <img src = "images/london3.jpg" width="300" height="150"><img src = "images/london4.jpg" width="300" height="150"></br>
+    <img src = "images/london5.jpg" width="300" height="150"><img src = "images/london6.jpg" width="300" height="150"></br>
 
 <!-- Feel free to add more in the blurb section here, these are placeholders -->
 <p>Our walking tours includes the following sites, depending on the package you select! Our knowledgeable guides are with you all day to explain the history, and let you experience the city walking, or through public transport, experience the hustle and bustle of London!</p>
@@ -120,15 +122,16 @@
         <td>Three Days</td>
     </tr>
 </table>
+<div id="review3"></div>
 <button class ="buttons"><p><a href = "#top">Back to the top!</a></p></button></br>
 <button class ="buttons"><p><a href = "contactus.html">Book London now!</a></p></button>
 
 <a id="city3"></a id>
 <div class="spacer2"></div>
     <h3>Madrid</h3>
-    <img src = "images1/europe.jpg" width="160" height="200"><img src = "images/bigben.png" width="200" height="160"></br>
-    <img src = "images/placeholder.png" width="80" height="50"><img src = "images/placeholder.png" width="80" height="50"></br>
-    <img src = "images/placeholder.png" width="80" height="50"><img src = "images/placeholder.png" width="80" height="50"></br>
+    <img src = "images/madrid1.jpg" width="300" height="150"><img src = "images/madrid2.jpg" width="300" height="150"></br>
+    <img src = "images/madrid3.jpg" width="300" height="150"><img src = "images/madrid4.jpg" width="300" height="150"></br>
+    <img src = "images/madrid5.jpg" width="300" height="150"><img src = "images/madrid6.jpg" width="300" height="150"></br>
     
     <!-- Feel free to add more in the blurb section here, these are placeholders -->
     <p>Our walking tours includes the following sites, depending on the package you select! Our knowledgeable guides are with you all day to explain the history, and let you experience the city walking, or through public transport, take in the culture, and the sights of Madrid!</p>
@@ -168,34 +171,11 @@
         </tr>
     </table>
 </br>
-    <a class="reviewfilter" href>Most Recent</a>
-    <a class="reviewfilter" href>Most Popular</a>
-    <a class="reviewfilter" href>Most Stars</a>
-    <a class="reviewfilter" href>Lowest Stars</a>
-    <div class="reviewcontainer">
-        <div class="userinitials">SL</div>
-        <div class="firstname">Shane</div>
-        <div class="reviewdate">Feb 3, 2020</div>
-        <div class="reviewstars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-        </div>
-        <div class="reviewcontent">Best tour I have been on in my life, beat all my expectations.</div>
-        <div class="reviewthumb"><i class="far fa-thumbs-up"></i></div>
-        <div class="reviewthumb"><i class="far fa-thumbs-down"></i></div>
-    </div>
-    <div>
-        <textarea rows="3" cols="30" name="comments" id="comments" required></textarea><br>
-        <input type="submit" value="Submit">
-        <input type="reset" value="Reset">
-    </div>
-    </br>
+<div id="review1"></div>
     <button class ="buttons"><p><a href = "#top">Back to the top!</a></p></button></br>
     <button class ="buttons"><p><a href = "contactus.html">Book Madrid now!</a></p></button>
     <!--Footer-->
     <footer><font color = "white";>copyright@travel2020</footer>
+        <script>review();</script>
 </body>
 </html>

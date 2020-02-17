@@ -1,0 +1,18 @@
+var initials = ["AS","JS","BS","CS","DS"];
+var names = ["Adam", "John", "Boe", "Charles", "Danny"];
+var date = ["January 2, 2019", "March 23, 2019", "June 3, 2019", "July 20, 2019", "August 2, 2019"];
+var comments = ["Wow! This trip was amazing. The tour guides really made the trip 10 times better!", "Thank you! I was worried about going off tour but the guide was super accomodating", "Great tour! Will definitely see some of the other cities tours you have here!","My family enjoyed really enjoyed this trip! Thank you!", "Best tour of my life, beat all my expectations!"]
+
+function review(){
+    console.log(names[1]);
+    var a = "<div class=\"reviewcontainer\"><div class=\"userinitials\">"+initials[0]+"</div><div class=\"firstname\">"+names[0]+"</div><div class=\"reviewdate\">"+date[0]+"</div><div class=\"reviewstars\"><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i></div><div class=\"reviewcontent\">"+comments[0]+"</div><div class=\"reviewthumb\"><i class=\"far fa-thumbs-up\"></i></div><div class=\"reviewthumb\"><i class=\"far fa-thumbs-down\"></i></div></div>";
+    var b = "<div class=\"reviewcontainer\"><div class=\"userinitials\">"+initials[1]+"</div><div class=\"firstname\">"+names[1]+"</div><div class=\"reviewdate\">"+date[1]+"</div><div class=\"reviewstars\"><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i></div><div class=\"reviewcontent\">"+comments[1]+"</div><div class=\"reviewthumb\"><i class=\"far fa-thumbs-up\"></i></div><div class=\"reviewthumb\"><i class=\"far fa-thumbs-down\"></i></div></div>";
+    var c = "<div class=\"reviewcontainer\"><div class=\"userinitials\">"+initials[2]+"</div><div class=\"firstname\">"+names[2]+"</div><div class=\"reviewdate\">"+date[2]+"</div><div class=\"reviewstars\"><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i></div><div class=\"reviewcontent\">"+comments[2]+"</div><div class=\"reviewthumb\"><i class=\"far fa-thumbs-up\"></i></div><div class=\"reviewthumb\"><i class=\"far fa-thumbs-down\"></i></div></div>";
+    var d = "<div class=\"reviewcontainer\"><div class=\"userinitials\">"+initials[3]+"</div><div class=\"firstname\">"+names[3]+"</div><div class=\"reviewdate\">"+date[3]+"</div><div class=\"reviewstars\"><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i></div><div class=\"reviewcontent\">"+comments[3]+"</div><div class=\"reviewthumb\"><i class=\"far fa-thumbs-up\"></i></div><div class=\"reviewthumb\"><i class=\"far fa-thumbs-down\"></i></div></div>";
+    var e = "<div class=\"reviewcontainer\"><div class=\"userinitials\">"+initials[4]+"</div><div class=\"firstname\">"+names[4]+"</div><div class=\"reviewdate\">"+date[4]+"</div><div class=\"reviewstars\"><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i><i class=\"fas fa-star\"></i></div><div class=\"reviewcontent\">"+comments[4]+"</div><div class=\"reviewthumb\"><i class=\"far fa-thumbs-up\"></i></div><div class=\"reviewthumb\"><i class=\"far fa-thumbs-down\"></i></div></div>";
+    var f = d + e;
+    var g = c + d;
+    document.getElementById("review1").innerHTML = f;
+    document.getElementById("review2").innerHTML = g;
+    document.getElementById("review3").innerHTML = a;
+}    

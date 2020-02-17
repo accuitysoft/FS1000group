@@ -5,6 +5,9 @@
     <link rel="stylesheet" href="styles1.css">
     <link rel="stylesheet" href="citystyle.css">
     <script src="https://kit.fontawesome.com/1422a2faae.js" crossorigin="anonymous"></script>
+    
+    <script src="js/review.js"></script>
+    
 </head>
 <body>
     <!-- navbar -->
@@ -32,9 +35,10 @@
 <a id="city1"></a id>
 <div class="spacer2"></div>
     <h3>New York City</h3>
-<img src = "images1/europe.jpg" width="160" height="200"><img src = "images/bigben.png" width="200" height="160"></br>
-<img src = "images/placeholder.png" width="80" height="50"><img src = "images/placeholder.png" width="80" height="50"></br>
-<img src = "images/placeholder.png" width="80" height="50"><img src = "images/placeholder.png" width="80" height="50"></br>
+
+<img src = "images/new york city1.jpg" width="300" height="150"><img src = "images/new york city2.jpg" width="300" height="150"></br>
+<img src = "images/new york city3.jpg" width="300" height="150"><img src = "images/new york city4.jpg" width="300" height="150"></br>
+<img src = "images/new york city5.jpg" width="300" height="150"><img src = "images/new york city6.jpg" width="300" height="150"></br>
 
 <!-- Feel free to add more in the blurb section here, these are placeholders -->
 <p>See the largest city in the United States, </p>
@@ -73,15 +77,16 @@
         <td>Three Days</td>
     </tr>
 </table>
+<div id="review3"></div>
 <button class ="buttons"><p><a href = "#top">Back to the top!</a></p></button></br>
 <button class ="buttons"><p><a href = "contactus.html">Book New York City now!</a></p></button>
 
 <a id="city2"></a id>
 <div class="spacer2"></div>
     <h3>Mexico City</h3>
-<img src = "images1/europe.jpg" width="160" height="200"><img src = "images/bigben.png" width="200" height="160"></br>
-<img src = "images/placeholder.png" width="80" height="50"><img src = "images/placeholder.png" width="80" height="50"></br>
-<img src = "images/placeholder.png" width="80" height="50"><img src = "images/placeholder.png" width="80" height="50"></br>
+    <img src = "images/mexico city1.jpg" width="300" height="150"><img src = "images/mexico city2.jpg" width="300" height="150"></br>
+    <img src = "images/mexico city3.jpg" width="300" height="150"><img src = "images/mexico city4.jpg" width="300" height="150"></br>
+    <img src = "images/mexico city5.jpg" width="300" height="150"><img src = "images/mexico city6.jpg" width="300" height="150"></br>
 
 <!-- Feel free to add more in the blurb section here, these are placeholders -->
 <p>Visit the largest city in North America, capital of Mexico!</p>
@@ -120,15 +125,17 @@
         <td>Three Days</td>
     </tr>
 </table>
+<div id="review2"></div>
 <button class ="buttons"><p><a href = "#top">Back to the top!</a></p></button></br>
 <button class ="buttons"><p><a href = "contactus.html">Book Mexico City now!</a></p></button>
 
 <a id="city3"></a id>
 <div class="spacer2"></div>
     <h3>Toronto</h3>
-    <img src = "images1/europe.jpg" width="160" height="200"><img src = "images/bigben.png" width="200" height="160"></br>
-    <img src = "images/placeholder.png" width="80" height="50"><img src = "images/placeholder.png" width="80" height="50"></br>
-    <img src = "images/placeholder.png" width="80" height="50"><img src = "images/placeholder.png" width="80" height="50"></br>
+
+    <img src = "images/toronto1.jpg" width="300" height="150"><img src = "images/toronto2.jpg" width="300" height="150"></br>
+    <img src = "images/toronto3.jpg" width="300" height="150"><img src = "images/toronto4.jpg" width="300" height="150"></br>
+    <img src = "images/toronto5.jpg" width="300" height="150"><img src = "images/toronto6.jpg" width="300" height="150"></br>
     
     <!-- Feel free to add more in the blurb section here, these are placeholders -->
     <p>Explore Canada's largest city</p>
@@ -168,34 +175,12 @@
         </tr>
     </table>
 </br>
-    <a class="reviewfilter" href>Most Recent</a>
-    <a class="reviewfilter" href>Most Popular</a>
-    <a class="reviewfilter" href>Most Stars</a>
-    <a class="reviewfilter" href>Lowest Stars</a>
-    <div class="reviewcontainer">
-        <div class="userinitials">SL</div>
-        <div class="firstname">Shane</div>
-        <div class="reviewdate">Feb 3, 2020</div>
-        <div class="reviewstars">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-        </div>
-        <div class="reviewcontent">Best tour I have been on in my life, beat all my expectations.</div>
-        <div class="reviewthumb"><i class="far fa-thumbs-up"></i></div>
-        <div class="reviewthumb"><i class="far fa-thumbs-down"></i></div>
-    </div>
-    <div>
-        <textarea rows="3" cols="30" name="comments" id="comments" required></textarea><br>
-        <input type="submit" value="Submit">
-        <input type="reset" value="Reset">
-    </div>
-    </br>
+    
+    <div id="review1"></div>
     <button class ="buttons"><p><a href = "#top">Back to the top!</a></p></button></br>
     <button class ="buttons"><p><a href = "contactus.html">Book Toronto now!</a></p></button>
     <!--Footer-->
     <footer><font color = "white";>copyright@travel2020</footer>
+        <script>review();</script>
 </body>
 </html>
