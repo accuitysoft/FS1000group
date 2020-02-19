@@ -72,6 +72,21 @@ nav ul li:hover ul li {
     display: block;
 }
 
+.intro {
+    padding: 200px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.contents {
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+}
 /*Features */
 
 .features {
@@ -81,7 +96,6 @@ nav ul li:hover ul li {
     display: flex;
     flex-direction: row;
     text-align: center;
-   
 }
 
 .features figure{
