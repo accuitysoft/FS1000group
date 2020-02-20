@@ -326,7 +326,7 @@ nav ul li:hover ul li {
 .features {
     background: white;
     color: black;
-    padding: 200px;
+    padding: 250px;
     display: flex;
     flex-direction: row;
     text-align: center;
