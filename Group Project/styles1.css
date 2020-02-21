@@ -265,3 +265,18 @@ footer {
     vertical-align: top;
     display: inline-block;
 }
+
+/* About us page */
+
+#aboutUs figure{
+    display: inline-block;
+}
+
+#aboutUs figure{
+    text-align: center;
+    font-weight: bold;
+}
+
+#guide1, #guide2, #guide3, #guide4 {
+    padding-top: 200px;
+}
